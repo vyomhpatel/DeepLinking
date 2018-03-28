@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="b12app.vyom.com.deeplinking">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".DeepMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Redirect">
+            <intent-filter> <!-- action to be viewed when user browses through the browser -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- on click of the link the activity should get launched. -->
+                <data
+                    android:host="www.vyomhpatel.com"
+                    android:scheme="http" />
+                <!-- what kind of data you're dealing with and who is the host -->
+                <data
+                    android:host="vyom"
+                    android:scheme="deeplinking" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Flash"></activity>
+    </application>
+
+</manifest>
